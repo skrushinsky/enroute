@@ -1,0 +1,92 @@
+<div class="uk-child-width-1-3@s uk-grid-match" uk-grid>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body">
+            <h3 class="uk-card-title"><i class="fas fa-user"></i>&nbsp;Заказчик</h3>
+            <ul class="uk-list order-details">
+                <li>{{ customer.name }}</li>
+                <li>{{ customer.phone }}</li>
+                <li></li>
+            </ul>            
+        </div>
+    </div>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body">
+            <h3 class="uk-card-title"><i class="fas fa-car"></i>&nbsp;ТС</h3>
+            <ul class="uk-list order-details">
+                <li> {{ vehicle.type }}</li>
+                <li>{{ vehicle.model }}</li>
+                <li>{{ vehicle.plate }}</li>
+            </ul>            
+        </div>
+    </div>    
+    <div>
+        <div class="uk-card uk-card-default uk-card-body">
+            <h3 class="uk-card-title"><i class="fas fa-tools"></i>&nbsp;Исполнитель</h3>
+            <ul class="uk-list order-details">
+                <li>{{ contractor.name }}</li>
+                <li>{{ contractor.technician }}</li>
+            </ul>            
+        </div>
+    </div>
+</div>
+
+<div class="uk-margin-top" uk-slider="center: true">
+    <div class="uk-position-relative uk-visible-toggle" tabindex="-1" style="margin-left: 50px; margin-right: 50px;">
+        <ul class="uk-slider-items uk-child-width-1-4">
+            {{#each slides}}
+            <li>
+                <div class="uk-panel" style="height: 300px;">
+                    <div style="width: 90%; height: 100%; background:url({{this}}); background-repeat: no-repeat; background-size: cover">
+                    </div>  
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+    <ul class="uk-margin-top uk-slider-nav uk-dotnav uk-text-large uk-flex-center">
+    </ul>    
+</div>
+
+<div class="uk-section uk-section-muted uk-padding uk-margin-top">
+    <article class="uk-article">
+        <h3><a class="uk-link-reset" href="">Заметки</a></h3>
+        <p>{{notes}}</p>
+    </article>
+</div>
+
+
+<div class="uk-child-width-1-2 uk-grid-match uk-margin-top" uk-grid>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body">
+            <div class="">
+                <span>Общая стоимость</span>
+                <span class="uk-text-large uk-text-bold">{{ price }}</span>
+            </div>          
+        </div>
+    </div>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body">
+            <div class="uk-grid-small" uk-grid>
+                <div class="uk-width-expand" uk-leader>Начало работы</div>
+                <div>{{ time.workstart }}</div>
+            </div>    
+            <div class="uk-grid-small" uk-grid>
+                <div class="uk-width-expand" uk-leader>Конец работы</div>
+                <div>{{ time.workend }}</div>
+            </div>   
+        </div>
+    </div>    
+</div>
+
+
+<div class="uk-section uk-section-default uk-margin-top">
+    <p class="uk-flex uk-flex-right">
+        <button class="uk-button uk-button-primary">Подтвердить</button>&nbsp;
+        <button class="uk-button uk-button-danger">Отказаться</button>
+    </p>    
+</div>
+
+<hr>
+<footer class="uk-secion uk-section-default uk-margin-top uk-text-muted">
+    <p>Страница сформирована: <span>{{ ts }}</span></p>    
+</footer>
